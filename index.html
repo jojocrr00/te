@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranchers Care For Cattle And The Land </title>
+    <style>
+
+        #flipbook {
+    
+    height: 90vh;
+    position: absolute;
+display: flex;
+    width: 30%;
+    max-width: 80%; /* Adjust the maximum width as needed */
+display: flex;
+    flex-direction: column;
+    align-items: center;
+justify-content: center;
+}
+
+#flipbook .page {
+    /* existing styles */
+    transition: transform 0.6s; /* Adjust the duration as needed */
+    /* Add necessary styles for the page */
+    position: absolute;
+    width: 40vh;
+    height: 100vh;
+    backface-visibility: hidden; /* This makes the back of the page invisible when flipped */
+    /* More styles as needed for the appearance of the page */
+}
+
+     #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#flipbook-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 80%; /* Adjust the maximum width as needed */
+    height: auto;
+    position: relative;
+    perspective: 1000px;
+}
+
+#flipbook {
+    display: flex;
+    width: 80%;
+    max-width: 80%; /* Adjust the maximum width as needed */
+}
+
+.page {
+
+    width: auto;
+    height: 100vp;
+    position: absolute;
+    background-color: white;
+    border: px solid #ccc;
+    backface-visibility: hidden;
+    transform-origin: left center;
+}
+
+
+
+#prevNextContainer {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    width: 100%;
+    
+    z-index: 99; /* Ensure the container is above other elements */
+    position: absolute; /* Ensure it's positioned in flow */
+}
+
+.control-button {
+    margin: 0 20px; /* Space between buttons */
+    z-index: 999; /* This z-index is higher than the container's to stay on top */
+    background-color: #ddd;
+    border: none;
+    padding: 20px 40px; /* Increased padding for larger buttons */
+    cursor: pointer;
+    font-size: 18px; /* Larger font size for better visibility */
+    border-radius: 8px; /* Rounded corners for aesthetics */
+}
+
+#zoom-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+    position: relative; /* Required for z-index to work */
+    z-index: 1000; /* High value to ensure it's on top */
+  }
+
+  #zoom-slider:hover {
+    opacity: 1;
+  }
+
+  #zoom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 35px;
+    height: 35px;
+    background: #4CAF50;
+    cursor: pointer;
+  }
+
+  #zoom-slider::-moz-range-thumb {
+    width: 35px;
+    height: 35px;
+    background: #4CAF50;
+    cursor: pointer;
+  }
+    </style>
+</head>
+<body>
+    <div class="zoom-control">
+        <label for="zoom-slider">Zoom:</label>
+        <input type="range" id="zoom-slider" min="1" max="2" value="1" step="0.1">
+    </div>
+     <div id="prevNextContainer">
+    <button id="prevPage">Previous</button>
+    <button id="nextPage">Next</button>
+  </div>
+
+<div id="container">
+    <div id="flipbook">
+        <div class="page"><img src="https://i.ibb.co/ZK8BrQ1/p1.png"  style="height:90%;width:150%;" />
+        </div>
+       
+        <div class="page">
+            <img src="https://i.ibb.co/z8zFnxN/pg3.png" alt="pg-3" border="0" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/pw99MjK/pg4.png" alt="pg-4" border="0" " style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/9NP9gbL/pg5.png" alt="pg-5" border="0"  style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/bBNw8GX/pg-6.png" alt="pg-6" border="0"  style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/4P8SJFk/pgg77.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/WcHv4nD/pg8.png" alt="pg-8" border="0"" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/2K1BTZG/pg9.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/T4d5nGB/pg10.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/tqQRS85/pg11.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/xJMVVt4/pg12.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/fHgrG70/pg13.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/KNMFP49/pg14.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/TqMpWJL/pg15.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/sw4HNbj/pg16.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/sHnrc3d/pg17.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/WV1M4VC/pg18.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/ZSMWL08/pg19.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/hCPP3tF/pg-20.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/68Hz02J/pg21.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/mvGVcdH/pg22.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+        <div class="page">
+            <img src="https://i.ibb.co/yPK7Bcp/pg23.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+    
+        <div class="page">
+            <img src="https://i.ibb.co/P5DTSPN/pg26.png" alt="pg-7" border="0" style="height:90%;width:150%;">
+        </div>
+    </div>
+  </div>
+    </html>
+    <script>
+         let currentPageIndex = 0;
+        const pages = document.querySelectorAll('.page');
+        const totalPages = pages.length;
+        const flipbook = document.getElementById('flipbook');
+    
+        pages.forEach((page, index) => {
+            page.style.zIndex = totalPages - index;
+        });
+    
+        function flipPage(forward) {
+            if (forward && currentPageIndex < totalPages - 1) {
+                pages[currentPageIndex].style.transform = 'rotateY(-180deg)';
+                currentPageIndex++;
+            } else if (!forward && currentPageIndex > 0) {
+                currentPageIndex--;
+                pages[currentPageIndex].style.transform = '';
+            }
+            updateZIndex();
+        }
+    
+        function updateZIndex() {
+            pages.forEach((page, index) => {
+                page.style.zIndex = index < currentPageIndex ? totalPages - currentPageIndex + index : totalPages - index;
+            });
+        }
+    
+        document.getElementById('nextPage').addEventListener('click', () => flipPage(true));
+        document.getElementById('prevPage').addEventListener('click', () => flipPage(false));
+    
+        const zoomSlider = document.getElementById('zoom-slider');
+        let zoomFactor = 1;
+        let offsetX = 0, offsetY = 0;
+    
+        zoomSlider.addEventListener('input', () => {
+            zoomFactor = parseFloat(zoomSlider.value);
+            updateZoomAndPan();
+        });
+    
+        function updateZoomAndPan() {
+            flipbook.style.transform = `scale(${zoomFactor}) translate(${offsetX}px, ${offsetY}px)`;
+        }
+    
+        let isPanning = false;
+        let startCoords = { x: 0, y: 0 };
+    
+        const startPan = (x, y) => {
+            isPanning = true;
+            startCoords = { x: x - offsetX, y: y - offsetY };
+            // Prevent default behavior to avoid text selection, etc.
+            document.body.style.userSelect = 'none';
+        };
+    
+        const doPan = (x, y) => {
+            if (!isPanning) return;
+            requestAnimationFrame(() => {
+                offsetX = x - startCoords.x;
+                offsetY = y - startCoords.y;
+                updateZoomAndPan();
+            });
+        };
+    
+        const endPan = () => {
+            isPanning = false;
+            document.body.style.userSelect = '';
+        };
+    
+        flipbook.addEventListener('mousedown', e => {
+            e.preventDefault(); // Prevent default to avoid drag and drop behavior
+            startPan(e.clientX, e.clientY);
+        });
+    
+        window.addEventListener('mousemove', e => {
+            doPan(e.clientX, e.clientY);
+        });
+    
+        window.addEventListener('mouseup', endPan);
+    
+        // Touch Events for Panning
+        flipbook.addEventListener('touchstart', e => {
+            e.preventDefault(); // Might be needed to prevent scrolling or swiping
+            const touch = e.touches[0];
+            startPan(touch.clientX, touch.clientY);
+        });
+    
+        flipbook.addEventListener('touchmove', e => {
+            const touch = e.touches[0];
+            doPan(touch.clientX, touch.clientY);
+        });
+    
+        flipbook.addEventListener('touchend', endPan);
+        // Assume the rest of your script is unchanged and just append the following
+
+let initialDistance = null;
+
+function getDistance(touches) {
+    const dx = touches[0].clientX - touches[1].clientX;
+    const dy = touches[0].clientY - touches[1].clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+
+flipbook.addEventListener('touchstart', e => {
+    if (e.touches.length === 2) {
+        e.preventDefault(); // Prevent default actions for two-finger touch
+        initialDistance = getDistance(e.touches);
+    }
+    // If there's only one touch, handle panning as before
+    else if (e.touches.length === 1) {
+        const touch = e.touches[0];
+        startPan(touch.clientX, touch.clientY);
+    }
+}, { passive: false });
+
+flipbook.addEventListener('touchmove', e => {
+    if (e.touches.length === 2) {
+        e.preventDefault(); // Prevent default actions for two-finger touch
+        const newDistance = getDistance(e.touches);
+        if (initialDistance) {
+            const scaleFactor = newDistance / initialDistance;
+            zoomFactor *= scaleFactor; // Update the zoom factor based on the pinch movement
+            updateZoomAndPan(); // Update the zoom and pan based on the new zoom factor
+            initialDistance = newDistance; // Update the initial distance for the next move event
+        }
+    } else if (e.touches.length === 1 && isPanning) {
+        // Continue to handle panning with one finger as before
+        const touch = e.touches[0];
+        doPan(touch.clientX, touch.clientY);
+    }
+}, { passive: false });
+
+flipbook.addEventListener('touchend', e => {
+    if (e.touches.length < 2) {
+        initialDistance = null; // Reset the initial distance when the fingers are lifted
+    }
+}, { passive: false });
+
+    </script>
+   
+    
